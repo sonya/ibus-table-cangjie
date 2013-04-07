@@ -27,11 +27,13 @@ createdb = \
 tables_DATA =
 
 if IBUS_TABLE_BUILD_CANGJIE3
-tables_DATA += cangjie3.db
+tables_DATA += cangjie3_hans.db
+tables_DATA += cangjie3_hant.db
 endif
 
 if IBUS_TABLE_BUILD_CANGJIE5
-tables_DATA += cangjie5.db
+tables_DATA += cangjie5_hans.db
+tables_DATA += cangjie5_hant.db
 endif
 
 if IBUS_TABLE_BUILD_QUICK3
@@ -47,8 +49,10 @@ tables_DATA += $(NULL)
 tablesdir = $(datadir)/ibus-table/tables
 
 EXTRA_DIST = \
-	cangjie3.txt \
-	cangjie5.txt \
+	cangjie3_hans.txt \
+	cangjie5_hant.txt \
+	cangjie3_hans.txt \
+	cangjie5_hant.txt \
 	quick3.txt \
 	quick5.txt \
 	$(NULL)

@@ -33,8 +33,10 @@ make DESTDIR=${RPM_BUILD_ROOT} NO_INDEX=true install
 # %find_lang %{name}
 
 %post
-ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie3.db
-ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie5.db
+ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie3_hans.db
+ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie3_hant.db
+ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie5_hans.db
+ibus-table-createdb -i -n %{_datadir}/ibus-table/tables/cangjie5_hant.db
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,11 +45,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING README
 %{_datadir}/ibus-table/icons/cangjie3.svg
-%{_datadir}/ibus-table/tables/cangjie3.db
-%{_datadir}/ibus/engine/cangjie3.engine
+%{_datadir}/ibus-table/tables/cangjie3_hans.db
+%{_datadir}/ibus-table/tables/cangjie3_hant.db
+%{_datadir}/ibus/engine/cangjie3_hans.engine
+%{_datadir}/ibus/engine/cangjie3_hant.engine
 %{_datadir}/ibus-table/icons/cangjie5.svg
-%{_datadir}/ibus-table/tables/cangjie5.db
-%{_datadir}/ibus/engine/cangjie5.engine
+%{_datadir}/ibus-table/tables/cangjie5_hans.db
+%{_datadir}/ibus-table/tables/cangjie5_hant.db
+%{_datadir}/ibus/engine/cangjie5_hans.engine
+%{_datadir}/ibus/engine/cangjie5_hant.engine
 
 %changelog
 * Wed Aug 19 2008 Yu Yuwei <acevery@gmail.com> - @VERSION@-1

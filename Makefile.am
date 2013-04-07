@@ -58,6 +58,9 @@ srpm: dist @PACKAGE_NAME@.spec
 			--define "_specdir `pwd`" \
 			@PACKAGE_NAME@.spec
 
+clean-db:
+	find . -name "*.db" | xargs $(RM)
+
 clean-rpm:
 	$(RM) -r "`uname -i`"
 
