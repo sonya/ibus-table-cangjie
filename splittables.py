@@ -105,9 +105,10 @@ def splittable(tablename, return_hans, big_charset):
 
     f = open(os.path.join("tables", tablename + ".txt"))
     if return_hans:
-        outf = open(os.path.join("tables", tablename + "_hans.txt"), "w")
+        suffix = "_hans"
     else:
-        outf = open(os.path.join("tables", tablename + "_hant.txt"), "w")
+        suffix = "_hant"
+    outf = open(os.path.join("tables", tablename + suffix + ".txt"), "w")
 
     started = False
     for line in f:
@@ -137,12 +138,21 @@ def splittable(tablename, return_hans, big_charset):
 
         else:
             if line.startswith("NAME"):
-                # tabcreatedb.py expects there to be no spaces in the
-                # table name
                 pat = re.compile("^NAME\s*=\s*(.+)")
                 match = pat.match(line)
                 if match:
-                    line = "NAME = " + match.group(1).replace(" ", "")
+                    old_name = match.group(1)
+                    new_name = old_name.replace(" ", "") + suffix
+                    # tabcreatedb.py expects there to be no spaces in the
+                    # table name
+                    line = line.replace(old_name, new_name)
+            elif line.startswith("ICON"):
+                pat = re.compile("^ICON\s*=\s*(.+).svg")
+                match = pat.match(line)
+                if match:
+                    old_name = match.group(1)
+                    new_name = old_name + suffix
+                    line = line.replace(old_name, new_name)
 
             outf.write(line)
             if line.strip() == "BEGIN_TABLE":
@@ -151,7 +161,7 @@ def splittable(tablename, return_hans, big_charset):
     f.close()
     outf.close()
 
-splittable("cangjie3", True, True)
-splittable("cangjie3", False, True)
-splittable("cangjie5", True, True)
-splittable("cangjie5", False, True)
+splittable("cangjie3", True, False)
+splittable("cangjie3", False, False)
+splittable("cangjie5", True, False)
+splittable("cangjie5", False, False)
