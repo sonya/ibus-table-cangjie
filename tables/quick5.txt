@@ -41,7 +41,7 @@ ICON = quick5.png
 ### ICON = /usr/share/scim/icons/CangJie5.png
 
 ### The default name of this table
-NAME = Quick 5
+NAME = Quick5
 
 #### The local names of this table 
 NAME.zh_CN = 速成第五代

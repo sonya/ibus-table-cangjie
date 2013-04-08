@@ -33,7 +33,7 @@ SERIAL_NUMBER = 2009021601
 ICON = quick3.png
 
 ### The default name of this table
-NAME = Quick 3
+NAME = Quick3
 
 ### The local names of this table 
 NAME.zh_CN = 速成第三代
