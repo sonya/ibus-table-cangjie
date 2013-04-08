@@ -44,12 +44,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING README
-%{_datadir}/ibus-table/icons/cangjie3.svg
+%{_datadir}/ibus-table/icons/cangjie3_hans.svg
+%{_datadir}/ibus-table/icons/cangjie3_hant.svg
 %{_datadir}/ibus-table/tables/cangjie3_hans.db
 %{_datadir}/ibus-table/tables/cangjie3_hant.db
 %{_datadir}/ibus/engine/cangjie3_hans.engine
 %{_datadir}/ibus/engine/cangjie3_hant.engine
-%{_datadir}/ibus-table/icons/cangjie5.svg
+%{_datadir}/ibus-table/icons/cangjie5_hans.svg
+%{_datadir}/ibus-table/icons/cangjie5_hant.svg
 %{_datadir}/ibus-table/tables/cangjie5_hans.db
 %{_datadir}/ibus-table/tables/cangjie5_hant.db
 %{_datadir}/ibus/engine/cangjie5_hans.engine

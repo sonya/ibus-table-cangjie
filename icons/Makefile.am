@@ -20,12 +20,20 @@
 
 icons_DATA = 
 
-if IBUS_TABLE_BUILD_CANGJIE3
-icons_DATA += cangjie3.svg
+if IBUS_TABLE_BUILD_CANGJIE3_HANS
+icons_DATA += cangjie3_hans.svg
 endif
 
-if IBUS_TABLE_BUILD_CANGJIE5
-icons_DATA += cangjie5.svg
+if IBUS_TABLE_BUILD_CANGJIE3_HANT
+icons_DATA += cangjie3_hant.svg
+endif
+
+if IBUS_TABLE_BUILD_CANGJIE5_HANS
+icons_DATA += cangjie5_hans.svg
+endif
+
+if IBUS_TABLE_BUILD_CANGJIE5_HANT
+icons_DATA += cangjie5_hant.svg
 endif
 
 if IBUS_TABLE_BUILD_QUICK3
@@ -41,8 +49,10 @@ icons_DATA += $(NULL)
 iconsdir = $(datadir)/ibus-table/icons
 
 EXTRA_DIST = \
-	cangjie3.svg \
-	cangjie5.svg \
+	cangjie3_hans.svg \
+	cangjie3_hant.svg \
+	cangjie5_hans.svg \
+	cangjie5_hant.svg \
 	quick3.png \
 	quick5.png \
 	$(NULL)

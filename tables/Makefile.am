@@ -26,13 +26,19 @@ createdb = \
 
 tables_DATA =
 
-if IBUS_TABLE_BUILD_CANGJIE3
+if IBUS_TABLE_BUILD_CANGJIE3_HANS
 tables_DATA += cangjie3_hans.db
+endif
+
+if IBUS_TABLE_BUILD_CANGJIE3_HANT
 tables_DATA += cangjie3_hant.db
 endif
 
-if IBUS_TABLE_BUILD_CANGJIE5
+if IBUS_TABLE_BUILD_CANGJIE5_HANS
 tables_DATA += cangjie5_hans.db
+endif
+
+if IBUS_TABLE_BUILD_CANGJIE5_HANT
 tables_DATA += cangjie5_hant.db
 endif
 

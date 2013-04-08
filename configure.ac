@@ -48,19 +48,33 @@ AC_PATH_PROG([IBUS_TABLE_CREATEDB],[ibus-table-createdb],
         [AC_MSG_ERROR([ibus-table-createdb not found.])])
 
 # choose table
-AC_ARG_ENABLE([cangjie5],
-    [AC_HELP_STRING([--enable-cangjie5],
-        [Generate CangJie5 Engine])], ,
-    [enable_cangjie5=yes])
+AC_ARG_ENABLE([cangjie5_hans],
+    [AC_HELP_STRING([--enable-cangjie5-hans],
+        [Generate CangJie5 Hans Engine])], ,
+    [enable_cangjie5_hans=yes])
 
-AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE5],[test x"$enable_cangjie5" != x"no"])
+AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE5_HANS],[test x"$enable_cangjie5_hans" != x"no"])
 
-AC_ARG_ENABLE([cangjie3],
-    [AC_HELP_STRING([--enable-cangjie3],
-        [Generate CangJie3 Engine])], ,
-    [enable_cangjie3=yes])
+AC_ARG_ENABLE([cangjie5_hant],
+    [AC_HELP_STRING([--enable-cangjie5-hant],
+        [Generate CangJie5 Hant Engine])], ,
+    [enable_cangjie5_hant=yes])
 
-AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE3],[test x"$enable_cangjie3" != x"no"])
+AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE5_HANT],[test x"$enable_cangjie5_hant" != x"no"])
+
+AC_ARG_ENABLE([cangjie3_hans],
+    [AC_HELP_STRING([--enable-cangjie3-hans],
+        [Generate CangJie3 Hans Engine])], ,
+    [enable_cangjie3_hans=yes])
+
+AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE3_HANS],[test x"$enable_cangjie3_hans" != x"no"])
+
+AC_ARG_ENABLE([cangjie3_hant],
+    [AC_HELP_STRING([--enable-cangjie3-hant],
+        [Generate CangJie3 Hant Engine])], ,
+    [enable_cangjie3_hant=yes])
+
+AM_CONDITIONAL([IBUS_TABLE_BUILD_CANGJIE3_HANT],[test x"$enable_cangjie3_hant" != x"no"])
 
 AC_ARG_ENABLE([quick5],
     [AC_HELP_STRING([--enable-quick5],
@@ -90,8 +104,10 @@ AC_MSG_RESULT([
 Build options:
   Version                   $VERSION
   Install prefix            $prefix
-  Build CangJie3            $enable_cangjie3
-  Build CangJie5            $enable_cangjie5
+  Build CangJie3 Hans       $enable_cangjie3_hans
+  Build CangJie3 Hant       $enable_cangjie3_hant
+  Build CangJie5 Hans       $enable_cangjie5_hans
+  Build CangJie5 Hant       $enable_cangjie5_hant
   Build Quick3              $enable_quick3
   Build Quick5              $enable_quick5
 ])
